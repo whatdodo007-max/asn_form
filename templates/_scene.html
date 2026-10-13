@@ -1,0 +1,173 @@
+<!-- Animated village background: sun, clouds, birds, coconut trees, huts, cow, goat, hen.
+     Drawn in SVG so it works offline. To use a real photo instead, see README ("Background photo"). -->
+<div class="scene" aria-hidden="true">
+  <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#fff6c2" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#ffe27a" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7cc455"/>
+        <stop offset="1" stop-color="#3f8f3a"/>
+      </linearGradient>
+    </defs>
+
+    <!-- sun -->
+    <g class="sun" transform="translate(1210 150)">
+      <circle r="150" fill="url(#sunGlow)"/>
+      <g class="rays" stroke="#ffd84d" stroke-width="6" stroke-linecap="round">
+        <path d="M0-78V-104M0 78V104M-78 0H-104M78 0H104M55-55l18-18M-55 55l-18 18M55 55l18 18M-55-55l-18-18"/>
+      </g>
+      <circle r="58" fill="#ffd84d"/>
+    </g>
+
+    <!-- clouds -->
+    <g class="cloud c1" fill="#fff" opacity=".92"><ellipse cx="0" cy="0" rx="70" ry="26"/><ellipse cx="-38" cy="8" rx="42" ry="20"/><ellipse cx="42" cy="8" rx="46" ry="21"/><ellipse cx="6" cy="-18" rx="38" ry="22"/></g>
+    <g class="cloud c2" fill="#fff" opacity=".85"><ellipse cx="0" cy="0" rx="90" ry="30"/><ellipse cx="-50" cy="10" rx="52" ry="22"/><ellipse cx="55" cy="10" rx="55" ry="24"/><ellipse cx="8" cy="-22" rx="48" ry="26"/></g>
+    <g class="cloud c3" fill="#fff" opacity=".8"><ellipse cx="0" cy="0" rx="55" ry="20"/><ellipse cx="-30" cy="7" rx="34" ry="16"/><ellipse cx="34" cy="7" rx="36" ry="17"/><ellipse cx="4" cy="-14" rx="30" ry="17"/></g>
+
+    <!-- birds -->
+    <g class="birds" fill="none" stroke="#3a3a3a" stroke-width="3" stroke-linecap="round">
+      <path class="bird b1" d="M0 0q10-12 20 0q10-12 20 0"/>
+      <path class="bird b2" d="M0 0q8-10 16 0q8-10 16 0"/>
+      <path class="bird b3" d="M0 0q7-9 14 0q7-9 14 0"/>
+    </g>
+
+    <!-- far hills -->
+    <path d="M0 520Q180 400 360 480T720 450T1080 490T1440 430V800H0Z" fill="#a8d98c"/>
+    <path d="M0 570Q240 470 480 540T960 520T1440 520V800H0Z" fill="#8bcb6e"/>
+
+    <!-- huts (mud walls, thatched roof) -->
+    <g transform="translate(250 505)">
+      <rect x="0" y="0" width="120" height="70" fill="#e8c9a0"/>
+      <polygon points="-16,2 60,-52 136,2" fill="#c89a4b"/>
+      <polygon points="-16,2 60,-52 136,2" fill="none" stroke="#a9792e" stroke-width="3"/>
+      <rect x="46" y="22" width="28" height="48" rx="3" fill="#7a4b2a"/>
+      <rect x="12" y="18" width="20" height="18" fill="#f7f1da" stroke="#7a4b2a" stroke-width="3"/>
+      <rect x="88" y="18" width="20" height="18" fill="#f7f1da" stroke="#7a4b2a" stroke-width="3"/>
+    </g>
+    <g transform="translate(980 515) scale(.85)">
+      <rect x="0" y="0" width="120" height="70" fill="#f0d6b0"/>
+      <polygon points="-16,2 60,-52 136,2" fill="#b98a3f"/>
+      <rect x="46" y="22" width="28" height="48" rx="3" fill="#6e4126"/>
+      <rect x="12" y="18" width="20" height="18" fill="#f7f1da" stroke="#6e4126" stroke-width="3"/>
+      <rect x="88" y="18" width="20" height="18" fill="#f7f1da" stroke="#6e4126" stroke-width="3"/>
+    </g>
+    <g transform="translate(600 530) scale(.7)">
+      <rect x="0" y="0" width="120" height="70" fill="#e5c394"/>
+      <polygon points="-16,2 60,-52 136,2" fill="#c89a4b"/>
+      <rect x="46" y="22" width="28" height="48" rx="3" fill="#7a4b2a"/>
+    </g>
+
+    <!-- coconut trees -->
+    <g class="palm p1" transform="translate(120 600)">
+      <path d="M0 0Q-14-110 10-230" stroke="#8a5a2b" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <g transform="translate(10 -230)" fill="#2f8f3f">
+        <path d="M0 0Q-70-40-120 10Q-60-10 0 0Z"/><path d="M0 0Q-60-70-110-50Q-50-40 0 0Z"/>
+        <path d="M0 0Q70-40 120 10Q60-10 0 0Z"/><path d="M0 0Q60-70 110-50Q50-40 0 0Z"/>
+        <path d="M0 0Q-10-80 10-110Q20-60 0 0Z"/>
+        <circle cx="-8" cy="12" r="9" fill="#6b4a1f"/><circle cx="10" cy="14" r="9" fill="#6b4a1f"/>
+      </g>
+    </g>
+    <g class="palm p2" transform="translate(1330 610) scale(.9)">
+      <path d="M0 0Q16-100-8-215" stroke="#8a5a2b" stroke-width="15" fill="none" stroke-linecap="round"/>
+      <g transform="translate(-8 -215)" fill="#2a8238">
+        <path d="M0 0Q-70-40-120 10Q-60-10 0 0Z"/><path d="M0 0Q-60-70-110-50Q-50-40 0 0Z"/>
+        <path d="M0 0Q70-40 120 10Q60-10 0 0Z"/><path d="M0 0Q60-70 110-50Q50-40 0 0Z"/>
+        <path d="M0 0Q-10-80 10-110Q20-60 0 0Z"/>
+        <circle cx="-8" cy="12" r="9" fill="#6b4a1f"/><circle cx="10" cy="14" r="9" fill="#6b4a1f"/>
+      </g>
+    </g>
+    <g class="palm p3" transform="translate(790 590) scale(.6)">
+      <path d="M0 0Q-10-100 8-205" stroke="#8a5a2b" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <g transform="translate(8 -205)" fill="#318f3d">
+        <path d="M0 0Q-70-40-120 10Q-60-10 0 0Z"/><path d="M0 0Q-60-70-110-50Q-50-40 0 0Z"/>
+        <path d="M0 0Q70-40 120 10Q60-10 0 0Z"/><path d="M0 0Q60-70 110-50Q50-40 0 0Z"/>
+        <path d="M0 0Q-10-80 10-110Q20-60 0 0Z"/>
+      </g>
+    </g>
+
+    <!-- near field -->
+    <path d="M0 640Q300 600 640 640T1440 625V800H0Z" fill="url(#field)"/>
+    <!-- dirt path -->
+    <path d="M520 800Q560 700 700 650Q760 630 830 640Q760 670 740 720Q730 770 760 800Z" fill="#d9b98a" opacity=".85"/>
+
+    <!-- fence -->
+    <g stroke="#8a5a2b" stroke-width="7" stroke-linecap="round">
+      <path d="M40 690H420M40 715H420"/>
+      <path d="M60 675V740M140 675V740M220 675V740M300 675V740M380 675V740"/>
+    </g>
+
+    <!-- grass tufts (swaying) -->
+    <g class="grass" fill="#2f7d32">
+      <path class="g1" d="M470 720q-6-26-14-34q12 6 18 30q4-24 16-30q-8 12-6 34z"/>
+      <path class="g2" d="M1040 735q-6-26-14-34q12 6 18 30q4-24 16-30q-8 12-6 34z"/>
+      <path class="g3" d="M900 700q-6-26-14-34q12 6 18 30q4-24 16-30q-8 12-6 34z"/>
+      <path class="g1" d="M1250 720q-6-26-14-34q12 6 18 30q4-24 16-30q-8 12-6 34z"/>
+      <path class="g2" d="M600 760q-6-26-14-34q12 6 18 30q4-24 16-30q-8 12-6 34z"/>
+    </g>
+
+    <!-- cow (walks across) -->
+    <g class="walker cow-walk">
+      <g transform="translate(0 668)">
+        <g class="bob">
+          <path class="tail" d="M2 12Q-18 24-14 54" stroke="#e9e9e9" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g class="leg l-back"><rect x="14" y="44" width="11" height="38" rx="4" fill="#f4f4f4" stroke="#cfcfcf"/><rect x="14" y="76" width="11" height="8" rx="3" fill="#333"/></g>
+          <g class="leg l-front"><rect x="34" y="44" width="11" height="38" rx="4" fill="#f4f4f4" stroke="#cfcfcf"/><rect x="34" y="76" width="11" height="8" rx="3" fill="#333"/></g>
+          <rect x="0" y="0" width="122" height="58" rx="26" fill="#fff" stroke="#d8d8d8"/>
+          <ellipse cx="30" cy="20" rx="16" ry="11" fill="#3a3a3a"/><ellipse cx="78" cy="34" rx="14" ry="10" fill="#3a3a3a"/><ellipse cx="96" cy="12" rx="9" ry="7" fill="#3a3a3a"/>
+          <g class="leg l-back2"><rect x="82" y="44" width="11" height="38" rx="4" fill="#fff" stroke="#cfcfcf"/><rect x="82" y="76" width="11" height="8" rx="3" fill="#333"/></g>
+          <g class="leg l-front2"><rect x="102" y="44" width="11" height="38" rx="4" fill="#fff" stroke="#cfcfcf"/><rect x="102" y="76" width="11" height="8" rx="3" fill="#333"/></g>
+          <g class="head">
+            <rect x="106" y="-20" width="46" height="42" rx="17" fill="#fff" stroke="#d8d8d8"/>
+            <rect x="132" y="2" width="24" height="21" rx="10" fill="#f6b9b9"/>
+            <circle cx="141" cy="12" r="2.5" fill="#a65c5c"/><circle cx="149" cy="12" r="2.5" fill="#a65c5c"/>
+            <circle cx="132" cy="-6" r="3.6" fill="#222"/>
+            <ellipse cx="112" cy="-14" rx="11" ry="5" transform="rotate(-30 112 -14)" fill="#f1d3d3" stroke="#d8d8d8"/>
+            <path d="M118-20q-4-12-12-12M134-20q2-12 10-14" stroke="#e5d7a6" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- goat -->
+    <g class="walker goat-walk">
+      <g transform="translate(0 700)">
+        <g class="bob">
+          <g class="leg l-back"><rect x="8" y="30" width="7" height="28" rx="3" fill="#b88a5c"/></g>
+          <g class="leg l-front"><rect x="46" y="30" width="7" height="28" rx="3" fill="#b88a5c"/></g>
+          <ellipse cx="34" cy="20" rx="36" ry="21" fill="#d7a874"/>
+          <g class="leg l-back2"><rect x="20" y="30" width="7" height="28" rx="3" fill="#c79865"/></g>
+          <g class="leg l-front2"><rect x="58" y="30" width="7" height="28" rx="3" fill="#c79865"/></g>
+          <path d="M-2 10l-12-8l6 16z" fill="#d7a874"/>
+          <g>
+            <ellipse cx="66" cy="2" rx="17" ry="14" fill="#e3b987"/>
+            <ellipse cx="80" cy="8" rx="9" ry="7" fill="#f1d9b8"/>
+            <circle cx="70" cy="-2" r="2.6" fill="#222"/>
+            <path d="M62-10q-2-16 6-20M70-11q2-14 10-16" stroke="#7a5a35" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M80 14q-2 8-6 10" stroke="#f5ead6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- hen (pecking) -->
+    <g class="hen" transform="translate(1110 745)">
+      <g class="hen-bob">
+        <path d="M-6 6q-22-8-14-28q10 12 24 12z" fill="#b5502d"/>
+        <ellipse cx="6" cy="6" rx="26" ry="19" fill="#c8693a"/>
+        <path d="M-2 4q16 18 32-2" fill="#a9532b"/>
+        <g class="hen-head">
+          <circle cx="30" cy="-12" r="11" fill="#d97b43"/>
+          <path d="M38-12l12 4l-12 4z" fill="#f2a31a"/>
+          <path d="M24-24q4-8 8 0q4-8 8 2" fill="#d6262c"/>
+          <circle cx="33" cy="-14" r="2.2" fill="#222"/>
+          <path d="M36-3q2 8 0 10" stroke="#d6262c" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+        <path d="M2 24v14M14 24v14M-2 38h8M10 38h8" stroke="#f2a31a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
+  <div class="scene-tint"></div>
+</div>

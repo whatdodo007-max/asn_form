@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="eyebrow reveal">🐄 Village to village marketplace</p>
+    <h1 class="reveal">Fresh from the <span class="grad">farm</span>,<br>straight to you.</h1>
+    <p class="lead reveal">Farmers post cattle, poultry, vegetables, grains and tools. Buyers call the seller directly. No middlemen.</p>
+    <div class="cta reveal">
+      <a class="btn big" href="{% url 'buyer' %}">🛒 I want to Buy</a>
+      <a class="btn big alt" href="{% url 'seller' %}">🌱 I want to Sell</a>
+    </div>
+    <div class="stats reveal">
+      <div><b data-count="{{ total_items }}">{{ total_items }}</b><span>Items listed</span></div>
+      <div><b data-count="{{ total_places }}">{{ total_places }}</b><span>Villages &amp; towns</span></div>
+      <div><b>0%</b><span>Commission</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap block">
+  <h2 class="reveal">Browse by category</h2>
+  <div class="cats">
+    {% for c in categories %}
+    <a class="cat reveal" href="{% url 'buyer' %}?category={{ c.key }}">
+      <span class="cat-ico">{% if c.key == 'cattle' %}🐄{% elif c.key == 'poultry' %}🐓{% elif c.key == 'dairy' %}🥛{% elif c.key == 'vegetables' %}🥕{% elif c.key == 'fruits' %}🥭{% elif c.key == 'grains' %}🌾{% elif c.key == 'seeds' %}🌱{% elif c.key == 'tools' %}🚜{% else %}📦{% endif %}</span>
+      <b>{{ c.label }}</b><small>{{ c.count }} item{{ c.count|pluralize }}</small>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap block">
+  <div class="row-head">
+    <h2 class="reveal">Latest from sellers</h2>
+    <a class="btn ghost small" href="{% url 'buyer' %}">See all →</a>
+  </div>
+  {% if latest %}
+  <div class="grid">{% for item in latest %}{% include "market/_card.html" %}{% endfor %}</div>
+  {% else %}
+  <div class="empty reveal">
+    <p>No items yet. Be the first farmer to post!</p>
+    <a class="btn" href="{% url 'seller' %}">Post an item</a>
+  </div>
+  {% endif %}
+</section>
+
+<section class="wrap block">
+  <h2 class="reveal">How it works</h2>
+  <div class="steps">
+    <div class="step reveal"><span>1</span><h3>Seller posts</h3><p>Add photo, category, price, location and mobile number.</p></div>
+    <div class="step reveal"><span>2</span><h3>Buyer browses</h3><p>Search by item, place or price and open the seller card.</p></div>
+    <div class="step reveal"><span>3</span><h3>Share your details</h3><p>Fill a short form to unlock that one seller's mobile number.</p></div>
+    <div class="step reveal"><span>4</span><h3>Call &amp; deal</h3><p>Talk directly, see the item, and finalise the price.</p></div>
+  </div>
+</section>
+{% endblock %}

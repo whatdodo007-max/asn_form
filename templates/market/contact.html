@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Contact - ASN FARMS{% endblock %}
+{% block content %}
+<section class="wrap page-head">
+  <p class="eyebrow reveal">✉️ Contact us</p>
+  <h1 class="reveal">We'd love to hear from you</h1>
+  <p class="lead reveal">Questions, feedback or need help posting an item? Send us a message.</p>
+</section>
+
+<section class="wrap contact-layout">
+  <form class="panel reveal" method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="errors">{{ form.non_field_errors }}</div>{% endif %}
+    {% for field in form %}
+      <div class="field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for e in field.errors %}<small class="err">{{ e }}</small>{% endfor %}
+      </div>
+    {% endfor %}
+    <button class="btn big" type="submit">Send message</button>
+  </form>
+
+  <aside class="panel info reveal">
+    <h2>ASN FARMS</h2>
+    <p>🌾 Village farm marketplace</p>
+    <p>📍 Tamil Nadu, India</p>
+    <p>🕘 We reply within 1-2 days</p>
+    <p class="note">Edit these lines in <code>templates/market/contact.html</code> to show your own address, phone and email.</p>
+  </aside>
+</section>
+{% endblock %}

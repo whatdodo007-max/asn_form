@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ listing.title }} - ASN FARMS{% endblock %}
+{% block content %}
+<section class="wrap detail">
+  <a class="back" href="{% url 'buyer' %}">← Back to items</a>
+
+  <div class="detail-grid">
+    <div class="detail-img reveal">
+      <img src="{{ listing.image.url }}" alt="{{ listing.title }}">
+      <span class="chip">{{ listing.get_category_display }}</span>
+    </div>
+
+    <div class="detail-info reveal">
+      <h1>{{ listing.title }}</h1>
+      <p class="price big-price">₹{{ listing.price|floatformat:"-2" }}{% if listing.price_note %} <small>{{ listing.price_note }}</small>{% endif %}</p>
+      <ul class="facts">
+        <li><span>📍 Location</span><b>{{ listing.location }}</b></li>
+        <li><span>👤 Seller</span><b>{{ listing.seller_name }}</b></li>
+        <li><span>🗓 Posted</span><b>{{ listing.created_at|date:"d M Y" }}</b></li>
+      </ul>
+      {% if listing.description %}<p class="desc">{{ listing.description|linebreaksbr }}</p>{% endif %}
+
+      {% if unlocked %}
+        <div class="unlocked">
+          <p>Seller mobile number</p>
+          <a class="phone" href="tel:+91{{ listing.mobile }}">📞 +91 {{ listing.mobile }}</a>
+          <div class="cta">
+            <a class="btn" href="tel:+91{{ listing.mobile }}">Call now</a>
+            <a class="btn alt" target="_blank" rel="noopener" href="https://wa.me/91{{ listing.mobile }}">WhatsApp</a>
+          </div>
+        </div>
+      {% else %}
+        <div class="locked">
+          <p class="lock-title">🔒 Seller mobile number is hidden</p>
+          <p class="lock-sub">Fill your details below to see this seller's number.</p>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}<div class="errors">{{ form.non_field_errors }}</div>{% endif %}
+            {% for field in form %}
+              <div class="field {% if field.errors %}has-error{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% for e in field.errors %}<small class="err">{{ e }}</small>{% endfor %}
+              </div>
+            {% endfor %}
+            <button class="btn big" type="submit">🔓 Show seller number</button>
+          </form>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if related %}
+  <h2 class="reveal sub-head">More in {{ listing.get_category_display }}</h2>
+  <div class="grid">{% for item in related %}{% include "market/_card.html" %}{% endfor %}</div>
+  {% endif %}
+</section>
+{% endblock %}

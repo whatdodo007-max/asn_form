@@ -1,0 +1,12 @@
+<form class="filters" method="get">
+  <input class="input" type="search" name="q" value="{{ filters.q }}" placeholder="Search item or seller">
+  <select class="input" name="category">
+    <option value="">All categories</option>
+    {% for key, label in categories %}
+      <option value="{{ key }}" {% if filters.category == key %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <input class="input" type="text" name="place" value="{{ filters.place }}" placeholder="Village / place">
+  <input class="input" type="number" min="0" name="max_price" value="{{ filters.max_price }}" placeholder="Max price ₹">
+  <button class="btn" type="submit">🔍 Search</button>
+</form>

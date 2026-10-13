@@ -1,0 +1,51 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}ASN FARMS - Village farm marketplace{% endblock %}</title>
+  <meta name="description" content="ASN FARMS: buy and sell cattle, poultry, vegetables, grains and farm items directly from village farmers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  {% include "_scene.html" %}
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="{% url 'home' %}" aria-label="ASN FARMS home">
+        <span class="brand-mark">🌾</span><span class="brand-text">ASN <b>FARMS</b></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="links" id="links">
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}on{% endif %}">Home</a>
+        <a href="{% url 'buyer' %}" class="{% if section == 'buyer' %}on{% endif %}">Buyer</a>
+        <a href="{% url 'seller' %}" class="{% if section == 'seller' %}on{% endif %}">Seller</a>
+        <a href="{% url 'contact' %}" class="{% if section == 'contact' %}on{% endif %}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  {% if messages %}
+  <div class="wrap toasts">
+    {% for m in messages %}<div class="toast {{ m.tags }}">{{ m }}</div>{% endfor %}
+  </div>
+  {% endif %}
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <footer class="footer">
+    <div class="wrap foot-inner">
+      <div><span class="brand-mark">🌾</span> <b>ASN FARMS</b><p>From the village to your village.</p></div>
+      <div class="foot-links">
+        <a href="{% url 'buyer' %}">Buy</a><a href="{% url 'seller' %}">Sell</a><a href="{% url 'contact' %}">Contact</a>
+      </div>
+      <small>&copy; {% now "Y" %} ASN FARMS. Always talk to the seller and check the item before paying.</small>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

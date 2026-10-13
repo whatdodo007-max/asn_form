@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Buy - ASN FARMS{% endblock %}
+{% block content %}
+<section class="wrap page-head">
+  <p class="eyebrow reveal">🛒 Buyer section</p>
+  <h1 class="reveal">Find what you need</h1>
+  <p class="lead reveal">Tap any seller card, share your details once, and that seller's mobile number opens.</p>
+</section>
+
+<section class="wrap">
+  {% include "market/_filters.html" %}
+
+  {% if page.object_list %}
+    <div class="grid">{% for item in page.object_list %}{% include "market/_card.html" %}{% endfor %}</div>
+    {% include "market/_pagination.html" %}
+  {% else %}
+    <div class="empty reveal">
+      <p>No items match your search.</p>
+      <a class="btn ghost" href="{% url 'buyer' %}">Clear filters</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

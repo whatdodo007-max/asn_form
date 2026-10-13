@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Sell - ASN FARMS{% endblock %}
+{% block content %}
+<section class="wrap page-head">
+  <p class="eyebrow reveal">🌱 Seller section</p>
+  <h1 class="reveal">Put your item up for sale</h1>
+  <p class="lead reveal">Anyone can post. Your mobile number stays hidden until a buyer shares their own details.</p>
+</section>
+
+<section class="wrap seller-layout">
+  <form class="panel reveal" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <h2>Seller details</h2>
+    {% if form.non_field_errors %}<div class="errors">{{ form.non_field_errors }}</div>{% endif %}
+
+    {% for field in form %}
+      <div class="field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <i>*</i>{% endif %}</label>
+        {% if field.name == 'image' %}
+          <label class="drop" for="{{ field.id_for_label }}" id="drop">
+            <span id="drop-text">📷 Tap to choose a photo</span>
+            <img id="preview" alt="" hidden>
+          </label>
+          <div class="file-hidden">{{ field }}</div>
+        {% else %}
+          {{ field }}
+        {% endif %}
+        {% if field.help_text %}<small class="help">{{ field.help_text }}</small>{% endif %}
+        {% for e in field.errors %}<small class="err">{{ e }}</small>{% endfor %}
+      </div>
+    {% endfor %}
+
+    <button class="btn big" type="submit">🚀 Post my item</button>
+  </form>
+
+  <div class="seller-list">
+    <div class="row-head"><h2 class="reveal">Items on sale now</h2></div>
+    {% include "market/_filters.html" %}
+    {% if page.object_list %}
+      <div class="grid two">{% for item in page.object_list %}{% include "market/_card.html" %}{% endfor %}</div>
+      {% include "market/_pagination.html" %}
+    {% else %}
+      <div class="empty reveal"><p>Nothing here yet. Your item could be the first!</p></div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

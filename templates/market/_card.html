@@ -1,0 +1,13 @@
+<a class="card reveal" href="{% url 'detail' item.pk %}">
+  <div class="card-img">
+    <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy">
+    <span class="chip">{{ item.get_category_display }}</span>
+  </div>
+  <div class="card-body">
+    <h3>{{ item.title }}</h3>
+    <p class="price">₹{{ item.price|floatformat:"-2" }}{% if item.price_note %} <small>{{ item.price_note }}</small>{% endif %}</p>
+    <p class="meta">📍 {{ item.location }}</p>
+    <p class="meta">👤 {{ item.seller_name }}</p>
+    <span class="btn small">📞 View seller number</span>
+  </div>
+</a>
