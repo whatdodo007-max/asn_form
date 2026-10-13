@@ -23,14 +23,12 @@ ALLOWED_HOSTS = [
     '.vercel.app',
 ]
 
+
 CSRF_TRUSTED_ORIGINS = [
-    o.strip()
-    for o in os.environ.get(
-        "DJANGO_CSRF_TRUSTED_ORIGINS",
-        "https://*.pythonanywhere.com,https://*.onrender.com",
-    ).split(",")
-    if o.strip()
+    'https://asn-forms.vercel.app',
+    'https://*.vercel.app',
 ]
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
