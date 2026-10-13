@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ASN FARMS
 
 Village farm marketplace built with Django + SQLite (SQL database).
@@ -108,3 +109,6 @@ so they need an external database and image storage. PythonAnywhere avoids that.
 ## Notes
 - Anyone can post (no login), so check the Admin panel regularly and untick **is_active** to hide bad posts.
 - Always keep `DJANGO_DEBUG=0` and a private `DJANGO_SECRET_KEY` on a public site.
+=======
+# asn_form
+>>>>>>> c737a929a098483b7183c27463ac7116a7f214f5
